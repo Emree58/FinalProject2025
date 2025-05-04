@@ -12,9 +12,6 @@ ProductTest();
 
 
 
-
-
-
 static void ProductTest()
 {
     ProductManager productManager = new(new EfProductDal());
