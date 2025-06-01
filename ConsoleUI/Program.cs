@@ -14,7 +14,7 @@ ProductTest();
 
 static void ProductTest()
 {
-    ProductManager productManager = new(new EfProductDal());
+    ProductManager productManager = new(new EfProductDal(),new CategoryManager(new EfCategoryDal()));
 
     var result = productManager.GetProductDetails();
 
@@ -36,7 +36,7 @@ static void ProductTest()
 static void CategoryTest()
 {
     CategoryManager categoryManager = new(new EfCategoryDal());
-    foreach (var category in categoryManager.GetAll())
+    foreach (var category in categoryManager.GetAll().Data)
     {
         Console.WriteLine(category.CategoryName);
     }
